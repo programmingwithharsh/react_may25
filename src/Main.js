@@ -2,8 +2,8 @@ import React from 'react';
 import ProductList from './Productlist';
 import AddProduct from './AddProduct';
 import Welcome from './Welcome';
-import Title from './Title';
-import Star from './Star';
+import Nav from './Nav';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 export default class Main extends React.Component { // In ES6 Exporting a module, component
 
@@ -17,15 +17,14 @@ export default class Main extends React.Component { // In ES6 Exporting a module
         console.log("Render lifecycle");
         console.log(this.state);
 
-        return <div>
-
-            <h1>This is Main Class Component</h1>
-
-            <ProductList {...this.props} />
-            <AddProduct data={this.state} />
-            <Welcome message="Welcome to Dashboard" {...this.props} />
-            <Title title="This is Title" />
-            <Star />
-        </div>
+        return <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Nav />}>
+                    <Route index element={<Welcome message="Welcome to Dashboard" {...this.props} />} />
+                    <Route path="/addproduct" element={<AddProduct data={this.state} />} />
+                    <Route path="/products" element={<ProductList {...this.props} />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
     }
 }
