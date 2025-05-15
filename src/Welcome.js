@@ -2,7 +2,8 @@ import React from 'react';
 class Welcome extends React.Component {
     constructor(props) {
         super(props);
-        console.log("Welcome component", this.props);
+        // console.log("Welcome component", this.props);
+        console.log("Welcome component constructor");
     }
 
     render() {
