@@ -22,8 +22,8 @@ class Welcome extends React.Component {
 
     render() {
         const myStyle = {
-            color: 'white',
-            backgroundColor: 'blue',
+            color: 'black',
+            backgroundColor: 'yellow',
             padding: '20px',
             fontFamily: 'Sans-Serif'
         }
@@ -35,7 +35,7 @@ class Welcome extends React.Component {
 
             <div style={myStyle}>
                 <div>State Username is {this.state.username} and address is {this.state.address}</div>
-                <button onClick={this.updateDetails}>Update State Details</button>
+                <button className='btn btn-primary' onClick={this.updateDetails}>Update State Details</button>
             </div>
             <div style={{ color: 'blue', border: '2px solid red', textAlign: 'center', padding: "2px" }}>
                 <div>Props x is {this.props.x}</div>
