@@ -4,6 +4,7 @@ import AddProduct from './AddProduct';
 import Welcome from './Welcome';
 import Nav from './Nav';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Title from './Title';
 
 export default class Main extends React.Component { // In ES6 Exporting a module, component
 
@@ -24,6 +25,7 @@ export default class Main extends React.Component { // In ES6 Exporting a module
                     <Route path="/addproduct" element={<AddProduct data={this.state} />} />
                     <Route path="/products" element={<ProductList {...this.props} />} />
                 </Route>
+                <Route path="/title" element={<Title />} />
             </Routes>
         </BrowserRouter>
     }
