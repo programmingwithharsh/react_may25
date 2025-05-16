@@ -19,11 +19,14 @@ const Nav = () => {
                         <li className="nav-item">
                             <Link className="nav-link active" to="/products" >Products</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" to="/corebootstrap">Core Bootstrap</Link>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div>
+        <div className='container-fluid'>
             <Outlet />
         </div>
     </div>;

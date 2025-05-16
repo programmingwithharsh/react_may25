@@ -5,6 +5,7 @@ import Welcome from './Welcome';
 import Nav from './Nav';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Title from './Title';
+import BootstrapExample from './bootstrap/BootstrapExample';
 
 export default class Main extends React.Component { // In ES6 Exporting a module, component
 
@@ -24,6 +25,7 @@ export default class Main extends React.Component { // In ES6 Exporting a module
                     <Route index element={<Welcome message="Welcome to Dashboard" {...this.props} />} />
                     <Route path="/addproduct" element={<AddProduct data={this.state} />} />
                     <Route path="/products" element={<ProductList {...this.props} />} />
+                    <Route path="/corebootstrap" element={<BootstrapExample />} />
                 </Route>
                 <Route path="/title" element={<Title />} />
             </Routes>
