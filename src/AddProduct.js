@@ -1,9 +1,14 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
+
 class AddProduct extends React.Component {
     constructor(props) {
         super(props);
         console.log("AddProduct", this.props);
         console.log("1 constructor lifecycle");
+        this.state = {
+            redirect: false
+        }
     }
 
     componentDidMount() { // any API Call
@@ -27,9 +32,60 @@ class AddProduct extends React.Component {
         console.log(JSON.parse(localStorage.getItem("users")));
     }
 
+    handleSubmit = (event) => {
+        event.preventDefault(); // stop page refresh
+
+        const productName = event.target.elements.productName.value;
+        const productCode = event.target.elements.productCode.value;
+        const releaseDate = event.target.elements.releaseDate.value;
+        const description = event.target.elements.description.value;
+        const price = event.target.elements.price.value;
+        const starRating = event.target.elements.starRating.value;
+        const imageUrl = event.target.elements.imageUrl.value;
+
+        if (productName == "") {
+            alert("Please enter product name");
+        }
+
+        const product = {
+            productId: Number(new Date()),
+            productName: productName,
+            productCode: productCode,
+            releaseDate: releaseDate,
+            description: description,
+            price: price,
+            starRating: starRating,
+            imageUrl: imageUrl
+        }
+
+        // Store product inside Localstorage
+        localStorage.setItem("product", JSON.stringify(product));
+        this.setState({
+            redirect: true
+        })
+    }
+
     render() {
         console.log("2 render lifecycle");
-        return (<h1>This is Add Product Class Component</h1>);
+        const { redirect } = this.state;
+        return <div className="mt-4">
+            {
+                redirect && (
+                    <Navigate to="/products" />
+                )
+            }
+            <h1>Add Product Form</h1>
+            <form className='col-xxl-6' onSubmit={this.handleSubmit}>
+                Product Name <input className='form-control' type='text' placeholder='Enter Product Name' name='productName' />
+                Product Code <input className='form-control' type='text' placeholder='Enter Product Code' name='productCode' />
+                Release Date <input className='form-control' type='date' name='releaseDate' />
+                Description <input className='form-control' type='text' placeholder='Enter Description' name='description' />
+                Price <input className='form-control' type='number' placeholder='Enter Price' name='price' />
+                Rating <input className='form-control' type='number' placeholder='Enter Rating' name='starRating' />
+                ImageUrl <input className='form-control' type='text' placeholder='Enter Rating' name='imageUrl' />
+                <button className='btn btn-primary mt-2'>Add Product</button>
+            </form>
+        </div>
     }
 }
 
