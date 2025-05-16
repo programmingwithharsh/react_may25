@@ -1,5 +1,6 @@
 import React from 'react';
 import './Welcome.css';
+import { Link } from 'react-router-dom';
 
 class Welcome extends React.Component {
     constructor(props) {
@@ -29,7 +30,15 @@ class Welcome extends React.Component {
         }
 
         return <div>
-            <h1 className='header'>Programming with Harsh</h1>
+            <h1 className='header'>Welcome to Users Module</h1>
+
+            <div className='text-center'>
+                <p>Existing Users</p>
+                <Link className="btn btn-outline-dark" to="/login" >Login</Link>
+                <p>New Users</p>
+                <Link className="btn btn-outline-dark" to="/register" >Register</Link>
+            </div>
+
             <h1 style={myStyle}>This is Welcome Class Component</h1><h2 className='header'>Another element</h2>
             <div>Props message is {this.props.message}</div>
 
