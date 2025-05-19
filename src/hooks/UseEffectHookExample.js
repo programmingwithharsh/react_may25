@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 function UseEffectHookExample() {
-    const [data, setData] = useState([{ name: "Bhanu Kiran" }]); // data is empty array
+    const [data, setData] = useState([{ name: "Bhanu Kiran" }]);
     /* 
     Functional Component 
         data is empty array
@@ -9,7 +9,7 @@ function UseEffectHookExample() {
 
     Class Component 
         this.state = {}
-        thi.setState({})
+        this.setState({})
     */
 
     useEffect(() => {
