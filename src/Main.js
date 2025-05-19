@@ -5,12 +5,13 @@ import Welcome from './Welcome';
 import Nav from './Nav';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Title from './Title';
-import BootstrapExample from './bootstrap/BootstrapExample';
+import BootstrapExample from './core-bootstrap/BootstrapExample';
 import NotFound from './NotFound';
 import ProductDetail from './ProductDetail';
 import Login from './Login';
 import Register from './Register';
 import HooksExample from './hooks/HooksExample';
+import ReactBootstrapExample from './react-bootstrap/ReactBootstrapExample';
 
 export default class Main extends React.Component { // In ES6 Exporting a module, component
 
@@ -85,6 +86,7 @@ export default class Main extends React.Component { // In ES6 Exporting a module
                     <Route path="/addproduct" element={<AddProduct data={this.state} />} />
                     <Route path="/products" element={<ProductList products={this.state.products} {...this.props} />} />
                     <Route path="/corebootstrap" element={<BootstrapExample />} />
+                    <Route path="/reactbootstrap" element={<ReactBootstrapExample />} />
                     <Route path="/products/:id" element={<ProductDetail />} />
                     <Route path="/hooks" element={<HooksExample />} />
                     <Route path="*" element={<NotFound />} />

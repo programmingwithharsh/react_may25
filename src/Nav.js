@@ -23,6 +23,9 @@ const Nav = () => {
                             <Link className="nav-link active" to="/corebootstrap">Core Bootstrap</Link>
                         </li>
                         <li className="nav-item">
+                            <Link className="nav-link active" to="/reactbootstrap">React Bootstrap</Link>
+                        </li>
+                        <li className="nav-item">
                             <Link className="nav-link active" to="/hooks">Hooks</Link>
                         </li>
                     </ul>
