@@ -10,6 +10,7 @@ import NotFound from './NotFound';
 import ProductDetail from './ProductDetail';
 import Login from './Login';
 import Register from './Register';
+import HooksExample from './hooks/HooksExample';
 
 export default class Main extends React.Component { // In ES6 Exporting a module, component
 
@@ -85,6 +86,7 @@ export default class Main extends React.Component { // In ES6 Exporting a module
                     <Route path="/products" element={<ProductList products={this.state.products} {...this.props} />} />
                     <Route path="/corebootstrap" element={<BootstrapExample />} />
                     <Route path="/products/:id" element={<ProductDetail />} />
+                    <Route path="/hooks" element={<HooksExample />} />
                     <Route path="*" element={<NotFound />} />
                 </Route>
                 <Route path="/title" element={<Title title="demo" />} />

@@ -22,6 +22,9 @@ const Nav = () => {
                         <li className="nav-item">
                             <Link className="nav-link active" to="/corebootstrap">Core Bootstrap</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" to="/hooks">Hooks</Link>
+                        </li>
                     </ul>
                 </div>
             </div>

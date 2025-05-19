@@ -4,21 +4,22 @@ import { Navigate } from 'react-router-dom';
 class AddProduct extends React.Component {
     constructor(props) {
         super(props);
-        console.log("AddProduct", this.props);
-        console.log("1 constructor lifecycle");
+        // console.log("AddProduct", this.props);
+        console.log("1 AddProduct constructor lifecycle");
         this.state = {
             redirect: false
         }
     }
 
     componentDidMount() { // any API Call
-        console.log("3 componentDidMount lifecycle");
+        console.log("3 AddProduct componentDidMount lifecycle");
         localStorage.setItem("x", 2); // number
         localStorage.setItem("username", "Sravanthi"); // string
         localStorage.setItem("active", true); // boolean
         localStorage.setItem("user", JSON.stringify({ id: 1, username: "Poorti" })); // object
         localStorage.setItem("users", JSON.stringify([{ id: 1, username: "Poorti" }, { id: 2, username: "Surya" }])); // array of object
 
+        /*
         console.log(typeof localStorage.getItem("x"));
         console.log(typeof localStorage.getItem("username"));
         console.log(typeof localStorage.getItem("active"));
@@ -30,6 +31,7 @@ class AddProduct extends React.Component {
         console.log(localStorage.getItem("active"));
         console.log(JSON.parse(localStorage.getItem("user")));
         console.log(JSON.parse(localStorage.getItem("users")));
+        */
     }
 
     handleSubmit = (event) => {
@@ -43,7 +45,7 @@ class AddProduct extends React.Component {
         const starRating = event.target.elements.starRating.value;
         const imageUrl = event.target.elements.imageUrl.value;
 
-        if (productName == "") {
+        if (productName === "") {
             alert("Please enter product name");
         }
 
@@ -60,13 +62,21 @@ class AddProduct extends React.Component {
 
         // Store product inside Localstorage
         localStorage.setItem("product", JSON.stringify(product));
-        this.setState({
+        this.setState({ // whenever state update, component rerender
             redirect: true
         })
     }
 
+    shouldComponentUpdate() {
+        return true;
+    }
+
+    componentWillUnmount() {
+        console.log("AddProduct componentWillUnmount");
+    }
+
     render() {
-        console.log("2 render lifecycle");
+        console.log("2 AddProduct render lifecycle");
         const { redirect } = this.state;
         return <div className="mt-4">
             {
