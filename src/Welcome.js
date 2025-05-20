@@ -47,10 +47,7 @@ class Welcome extends React.Component {
                 <button className='btn btn-primary' onClick={this.updateDetails}>Update State Details</button>
             </div>
             <div style={{ color: 'blue', border: '2px solid red', textAlign: 'center', padding: "2px" }}>
-                <div>Props x is {this.props.x}</div>
-                <div>Props username is {this.props.usernameProps}</div>
-                <div>Props interests is {this.props.interestsProps[0]}</div>
-                <div>Props birth place is {this.props.birthProps.place}</div>
+               
             </div>
         </div>
     }
