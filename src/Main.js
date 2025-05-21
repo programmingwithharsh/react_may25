@@ -12,7 +12,7 @@ import Login from './Login';
 import Register from './Register';
 import HooksExample from './hooks/HooksExample';
 import ReactBootstrapExample from './react-bootstrap/ReactBootstrapExample';
-import { removeProduct, loadProducts, addProduct } from './redux/actions';
+import { removeProduct, loadProducts } from './redux/actions';
 
 export default class Main extends React.Component { // In ES6 Exporting a module, component
 
@@ -24,7 +24,7 @@ export default class Main extends React.Component { // In ES6 Exporting a module
             products: [
                 {
                     "productId": 1,
-                    "productName": "Leaf Rake",
+                    "productName": "Leaf Rake - State",
                     "productCode": "GDN-0011",
                     "releaseDate": "March 19, 2016",
                     "description": "Leaf rake with 48-inch wooden handle.",
@@ -79,17 +79,14 @@ export default class Main extends React.Component { // In ES6 Exporting a module
     componentDidMount() {
         this.props.dispatch(loadProducts()); // calling load Products action
         this.props.dispatch(removeProduct(1)); // calling remove product action and passing index value 1
-        this.props.dispatch(addProduct( // calling add product action and passing new product
-            {
-                productId: 6,
-                productName: 'Iphone',
-                productCode: 'GDN-0011',
-                releaseDate: 'March 19, 2025',
-                description: 'Iphone is Excellent Phone',
-                price: 85000,
-                starRating: 5,
-                imageUrl: 'https://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png'
-            }))
+    }
+
+    addProduct = (productSubmitted) => {
+        debugger
+        this.setState((state) => ({
+                products: state.products.concat([productSubmitted])
+            }
+        ))
     }
 
     render() { // render lifecycle
@@ -100,7 +97,7 @@ export default class Main extends React.Component { // In ES6 Exporting a module
             <Routes>
                 <Route path="/" element={<Nav />}>
                     <Route index element={<Welcome message="Welcome to Dashboard" {...this.props} />} />
-                    <Route path="/addproduct" element={<AddProduct data={this.state} />} />
+                    <Route path="/addproduct" element={<AddProduct data={this.state} {...this.props} onAddProduct={(addedProduct) => this.addProduct(addedProduct)} />} />
                     <Route path="/products" element={<ProductList products={this.state.products} />} />
                     <Route path="/corebootstrap" element={<BootstrapExample />} />
                     <Route path="/reactbootstrap" element={<ReactBootstrapExample />} />

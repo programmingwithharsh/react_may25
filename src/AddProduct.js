@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
+// import { addProduct } from './redux/actions';
 
 class AddProduct extends React.Component {
     constructor(props) {
@@ -9,6 +10,7 @@ class AddProduct extends React.Component {
         this.state = {
             redirect: false
         }
+        console.log(this.props);
     }
 
     componentDidMount() { // any API Call
@@ -61,10 +63,13 @@ class AddProduct extends React.Component {
         }
 
         // Store product inside Localstorage
-        localStorage.setItem("product", JSON.stringify(product));
+        // localStorage.setItem("product", JSON.stringify(product));
+
         this.setState({ // whenever state update, component rerender
             redirect: true
         })
+        // this.props.dispatch(addProduct(product))
+        this.props.onAddProduct(product);
     }
 
     shouldComponentUpdate() {
