@@ -14,6 +14,8 @@ import HooksExample from './hooks/HooksExample';
 import ReactBootstrapExample from './react-bootstrap/ReactBootstrapExample';
 import { removeProduct, loadProducts } from './redux/actions';
 import UserList from './UserList';
+import ParentComponent from './ParentComponent';
+import App from './composition/App';
 
 export default class Main extends React.Component { // In ES6 Exporting a module, component
 
@@ -105,6 +107,8 @@ export default class Main extends React.Component { // In ES6 Exporting a module
                     <Route path="/products/:id" element={<ProductDetail />} />
                     <Route path="/hooks" element={<HooksExample />} />
                     <Route path="/userslist" element={<UserList />} />
+                    <Route path="/lifting" element={<ParentComponent />} />
+                    <Route path="/composition" element={<App />} />
                     <Route path="*" element={<NotFound />} />
                 </Route>
                 <Route path="/title" element={<Title title="demo" />} />

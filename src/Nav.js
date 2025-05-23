@@ -31,6 +31,12 @@ const Nav = () => {
                         <li className="nav-item">
                             <Link className="nav-link active" to="/userslist">UsersList (Async/Await)</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" to="/lifting">Lifting</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" to="/composition">Composition</Link>
+                        </li>
                     </ul>
                 </div>
             </div>
