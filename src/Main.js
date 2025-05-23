@@ -13,13 +13,14 @@ import Register from './Register';
 import HooksExample from './hooks/HooksExample';
 import ReactBootstrapExample from './react-bootstrap/ReactBootstrapExample';
 import { removeProduct, loadProducts } from './redux/actions';
+import UserList from './UserList';
 
 export default class Main extends React.Component { // In ES6 Exporting a module, component
 
     constructor(props) { // lifecycle
         super(props);
         // console.log(this.props);
-        console.log("Constructor lifecycle");
+        // console.log("Constructor lifecycle");
         this.state = {
             products: [
                 {
@@ -82,7 +83,7 @@ export default class Main extends React.Component { // In ES6 Exporting a module
     }
 
     addProduct = (productSubmitted) => {
-        debugger
+        // debugger
         this.setState((state) => ({
                 products: state.products.concat([productSubmitted])
             }
@@ -90,8 +91,8 @@ export default class Main extends React.Component { // In ES6 Exporting a module
     }
 
     render() { // render lifecycle
-        console.log("Render lifecycle");
-        console.log(this.state);
+        // console.log("Render lifecycle");
+        // console.log(this.state);
 
         return <BrowserRouter>
             <Routes>
@@ -103,6 +104,7 @@ export default class Main extends React.Component { // In ES6 Exporting a module
                     <Route path="/reactbootstrap" element={<ReactBootstrapExample />} />
                     <Route path="/products/:id" element={<ProductDetail />} />
                     <Route path="/hooks" element={<HooksExample />} />
+                    <Route path="/userslist" element={<UserList />} />
                     <Route path="*" element={<NotFound />} />
                 </Route>
                 <Route path="/title" element={<Title title="demo" />} />

@@ -2,7 +2,7 @@ import Main from './Main';
 import { connect } from 'react-redux';
 
 function mapStateToProps(state) { // map redux state to react props, builtin function
-    debugger;
+    // debugger;
     return {
         products: state
     }

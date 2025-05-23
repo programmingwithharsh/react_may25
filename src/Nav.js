@@ -28,6 +28,9 @@ const Nav = () => {
                         <li className="nav-item">
                             <Link className="nav-link active" to="/hooks">Hooks</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" to="/userslist">UsersList (Async/Await)</Link>
+                        </li>
                     </ul>
                 </div>
             </div>

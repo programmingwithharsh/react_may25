@@ -1,7 +1,7 @@
 import products from '../data/products';
 
 const ProductReducer = (state = products, action) => { // reducer is a function which update state based on action
-    debugger
+    // debugger
     switch (action.type) {
         case 'REMOVE_PRODUCT':
             return [...state]; // write a logic to remove product
